@@ -35,7 +35,21 @@ const last = function (array, n) {
 	}
 };
 
-const each = function (collection, callback) {};
+const each = function (collection, callback) {
+  if (collection instanceof Array) {
+		for (i = 0; i < collection.length; i++) {
+			callback (collection[i], i, collection)
+		}
+	} else {
+    for ( let key in collection) {
+      callback(collection[key], key, collection)
+    }
+  }
+};
+
+
+
+
 const indexOf = function (array, target) {};
 const map = function (collection, iterator) {};
 
