@@ -19,28 +19,21 @@ const first = function (array, n) {
 
 const last = function (array, n) {
   let newArr = [];
-  
-	if (n == undefined) {
-		return array[array.length-1];
+	if (n === undefined) {
+		return array[array.length - 1];
 	}
-	else {
-    for (let i = array.length-1; newArr.length = 2; i--) {
-		if (array[i - 1] != undefined) {
-			newArr.push(array[i - 1]);
+	if (n === 0) {
+		return [];
+	}
+	if (n >= array.length) {
+		return array;
+	} else {
+		for (i = array.length - n; i < array.length; i++) {
+			newArr.push(array[i]);
 		}
+		return newArr;
 	}
-}
-	return newArr;
 };
-
-test = last([1,2,3])
-test
-
-test2 = last([1,2,3], 1)
-test2
-
-test3 = last([1,2,3], 3)
-test3
 
 const each = function (collection, callback) {};
 const indexOf = function (array, target) {};
