@@ -6,19 +6,18 @@ const first = function (array, n) {
 
 	if (n == undefined) {
 		return array[0];
-	}
-	else {
-    for (let i = 0; i <= n; i++) {
-		if (array[i - 1] != undefined) {
-			newArr.push(array[i - 1]);
+	} else {
+		for (let i = 0; i <= n; i++) {
+			if (array[i - 1] != undefined) {
+				newArr.push(array[i - 1]);
+			}
 		}
 	}
-}
 	return newArr;
 };
 
 const last = function (array, n) {
-  let newArr = [];
+	let newArr = [];
 	if (n === undefined) {
 		return array[array.length - 1];
 	}
@@ -36,29 +35,33 @@ const last = function (array, n) {
 };
 
 const each = function (collection, callback) {
-  if (collection instanceof Array) {
+	if (collection instanceof Array) {
 		for (i = 0; i < collection.length; i++) {
-			callback (collection[i], i, collection)
+			callback(collection[i], i, collection);
 		}
 	} else {
-    for ( let key in collection) {
-      callback(collection[key], key, collection)
-    }
-  }
+		for (let key in collection) {
+			callback(collection[key], key, collection);
+		}
+	}
 };
-
-
-
 
 const indexOf = function (array, target) {
-  for (let i=0; i <array.length; i++){
-    if (array[i] === target){
-      return i
-    }
-  }
-  return -1
+	for (let i = 0; i < array.length; i++) {
+		if (array[i] === target) {
+			return i;
+		}
+	}
+	return -1;
 };
-const map = function (collection, iterator) {};
+const map = function (collection, iterator) {
+	let newArr = [];
+
+	each(collection, function (item) {
+		newArr.push(iterator(item));
+	});
+	return newArr;
+};
 
 module.exports = {
 	identity,
