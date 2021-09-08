@@ -50,7 +50,14 @@ const each = function (collection, callback) {
 
 
 
-const indexOf = function (array, target) {};
+const indexOf = function (array, target) {
+  for (let i=0; i <array.length; i++){
+    if (array[i] === target){
+      return i
+    }
+  }
+  return -1
+};
 const map = function (collection, iterator) {};
 
 module.exports = {
